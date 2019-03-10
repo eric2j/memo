@@ -36,39 +36,61 @@ column -t -s ","                        # Columnate lists. -t:table, -s delimite
 cp                                      # -L:follow sym links, -p:preserve attributes, -R recurse
 cut -d':' -f1,2                         # cut -d:delimiter, -f:field
 curl                                    # transfert URL
-VISUAM=vi crontab -e                    # Edit crontab (-l=list) minute hour dayOfMonth month dayOfWeek user command
+curl <url>
+    -s|--silent                           # silent
+    -o <outputfile>                       # Save response
+    -O                                    # save file
+    -d|--data 'name=bob'                  # url-encode and post data
+    -d '@filename'                        # url-encode file data and post
+    -u|--user <user>:<password> --basic   # Basic Auth
+    -X|--request <method>                 # POST, PUT, DELETE, GET (default)
+    -H|--header <header>                  # "Content-Type: application/json", "Accept: application/json"
+    --proxy-user <domain>\\<usr>:<pwd> \
+    --proxy <protocol>://<url>:<port> \
+    --proxy-ntlm
+    -v|--verbose
+    -k|--insecure                         # allows curl to perform "insecure" SSL connections
+VISUAM=vi crontab -e                      # Edit crontab (-l=list) minute hour dayOfMonth month dayOfWeek user command
 ```
 
 ## D
 
 ```bash
-date
-df
-du
-diff
-dirname
-dig
+date -v1d -v+1m -v-1d -v-fri "+%d/%m/%Y"  # Display the last Friday of the month -v:adjust
+df -hl                                    # free disk space -i:inode -h:human -l:locally-mounted
+du -sh * | sort -h                        # disk usage. -s:entry for each file, -h:human -c:total
+diff file1 file2                          # -w|--ignore-all-space -B|--ignore-blank-line -y|--side-by-side -r|--recursive -q|--brief(only file)
+dirname                                   # directory portion of pathname
+dig +short generali.fr                    # DNS lookup utility
 ```
-
-
 
 ## E
 
-
-
 ```bash
-env
-export
-exec
-echo
+env                                       # print environment variables
+export VAR1=value1                        # export var for subsequently started processes in a shell
+exec command arguments
+echo -n "$HOME"                           # -n:no print newline
+exit                                      # exit from script
 ```
 
+## F
 
+```bash
+find
+fg                                        # Send job to foreground
+file <filename>                           # determine file type
+free -h                                   # display memory usage
+for i in {1..10}; do echo $i; done
+for afile in *; do echo "> $afile"; done  # * will match every file in the directory
+```
 
-Find fg file
+## G
+
+```bash
 Grep 
 gzip voir tar
-
+```
 
 
 Head history 
@@ -110,7 +132,4 @@ $
 
 
 
-
-
-
-> Written with [StackEdit](https://stackedit.io/).
+https://ss64.com/bash/
